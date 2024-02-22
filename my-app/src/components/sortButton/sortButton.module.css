@@ -1,0 +1,11 @@
+.sort{
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 50px;
+	cursor: pointer;
+  }
+
+  .sortActive{
+	color: #5E8340;
+	font-weight: bold;
+  }
