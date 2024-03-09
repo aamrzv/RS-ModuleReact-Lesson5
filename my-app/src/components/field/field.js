@@ -1,16 +1,6 @@
 import styles from './field.module.css';
 
-export const Field = ({
-	handleSubmit,
-	inputData,
-	isSearchMode,
-	isCreating,
-	isDeleting,
-	setIsSearchMode,
-	refreshProducts,
-	hendleSearchTodo,
-	handleChangeInput,
-}) => {
+export const Field = ({ handleSubmit, inputData, isSearchMode, isCreating, isDeleting, setIsSearchMode, hendleSearchTodo, handleChangeInput }) => {
 	return (
 		<div>
 			<h1>Задачи</h1>
@@ -27,7 +17,6 @@ export const Field = ({
 					type="button"
 					onClick={() => {
 						setIsSearchMode(!isSearchMode);
-						refreshProducts();
 					}}
 				>
 					<SearchIcon />

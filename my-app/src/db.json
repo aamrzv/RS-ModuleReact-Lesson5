@@ -1,13 +1,8 @@
 {
   "todos": [
     {
-      "id": "70bd",
-      "title": "Сделал дело",
-      "completed": false
-    },
-    {
-      "id": "6d56",
-      "title": "Аретма",
+      "id": "6105",
+      "title": "Передалать на Farebase",
       "completed": false
     }
   ]

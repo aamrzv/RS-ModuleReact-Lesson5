@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { ref, update } from 'firebase/database';
+import { db } from '../firebase';
 
-export const useRequestUpdateTodo = (refreshProducts, setTitleData) => {
+export const useRequestUpdateTodo = (setTitleData) => {
 	const [isChangingTodo, setIsChangingTodo] = useState({ Status: false, id: null });
 
 	const changingTodo = (id, title) => {
@@ -13,34 +15,20 @@ export const useRequestUpdateTodo = (refreshProducts, setTitleData) => {
 	};
 
 	const requestUpdateTodoStatus = (id, completed) => {
-		fetch(`http://192.168.0.133:3005/todos/${id}`, {
-			method: 'PATCH',
-			headers: { 'Content-Type': 'application/json;charset=utf-8' },
-			body: JSON.stringify({
-				completed: !completed,
-			}),
-		})
-			.then((rawResponse) => rawResponse.json())
-			.then((response) => {
-				refreshProducts();
-				console.log('ответ сервера:', response);
-			});
+		update(ref(db, `todos/${id}`), {
+			completed: !completed,
+		}).then((response) => {
+			console.log('ответ сервера:', response);
+		});
 	};
 
 	const requestUpdateTodoTitle = (id, title) => {
-		fetch(`http://192.168.0.133:3005/todos/${id}`, {
-			method: 'PATCH',
-			headers: { 'Content-Type': 'application/json;charset=utf-8' },
-			body: JSON.stringify({
-				title: title,
-			}),
-		})
-			.then((rawResponse) => rawResponse.json())
-			.then((response) => {
-				refreshProducts();
-				changingTodoStatus();
-				console.log('ответ сервера:', response);
-			});
+		update(ref(db, `todos/${id}`), {
+			title: title,
+		}).then((response) => {
+			changingTodoStatus();
+			console.log('ответ сервера:', response);
+		});
 	};
 
 	return { isChangingTodo, requestUpdateTodoStatus, requestUpdateTodoTitle, changingTodo, changingTodoStatus };

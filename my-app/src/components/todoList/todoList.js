@@ -12,7 +12,7 @@ export const TodoList = ({
 }) => {
 	return (
 		<ol className={styles.dataContainer}>
-			{todos.map(({ id, title, completed }) => (
+			{todos.map(([id, { title, completed }]) => (
 				<li key={id}>
 					{isChangingTodo.Status && id === isChangingTodo.id ? (
 						<input className={styles.inputTodoChange} type="text" value={titleData} onChange={handleChangeTitle} />

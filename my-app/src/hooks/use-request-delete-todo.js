@@ -1,16 +1,16 @@
 import { useState } from 'react';
-export const useRequestDeleteTodo = (refreshProducts) => {
+import { ref, remove } from 'firebase/database';
+import { db } from '../firebase';
+
+export const useRequestDeleteTodo = () => {
 	const [isDeleting, setIsDeleting] = useState(false);
 
 	const requestDeleteTodo = (id) => {
 		setIsDeleting(true);
-		fetch(`http://192.168.0.133:3005/todos/${id}`, { method: 'DELETE' })
-			.then((rawResponse) => rawResponse.json())
-			.then((response) => {
-				refreshProducts();
-				console.log('ответ сервера:', response);
-				setIsDeleting(false);
-			});
+		remove(ref(db, `todos/${id}`)).then((response) => {
+			console.log('ответ сервера:', response);
+			setIsDeleting(false);
+		});
 	};
 	return {
 		requestDeleteTodo,
