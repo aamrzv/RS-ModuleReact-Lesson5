@@ -1,0 +1,61 @@
+.pickDate{
+	display: flex;
+}
+.pickDate label {
+    padding: 8px;
+	font-size: small;
+  }
+.pickDate input {
+	padding: 5px;
+	border-radius: 5px;
+	font-size: small;
+  }
+.conteiner{
+	margin-left: 30px;
+	padding: 0 10px 10px 10px;
+	background-color: #e3dedc;
+	padding-left: 10px;
+	max-height: 300px;
+	border-radius: 5px;
+}
+
+.textBlock {
+	display: flex;
+    flex-direction: column;
+}
+
+.textBlock label {
+    padding: 8px;
+	font-size: small;
+  }
+
+.textBlock textarea{
+	min-width: 460px;
+    max-height: 110px;
+
+}
+
+.header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.btnBackSpace{
+	text-decoration: none;
+    font-size: x-large;
+	color: #fff;
+	background-color: #5E8340;
+	padding: 0 5px 3px 5px;
+	border-radius: 5px;
+}
+
+.btnSubmit{
+	color: #fff;
+	background-color: #5E8340;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+	padding: 6px 8px;
+    cursor: pointer;
+}

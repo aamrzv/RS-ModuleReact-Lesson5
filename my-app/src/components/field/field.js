@@ -3,11 +3,12 @@ import styles from './field.module.css';
 export const Field = ({
 	handleSubmit,
 	inputData,
+	setInputData,
 	isSearchMode,
 	isCreating,
 	isDeleting,
 	setIsSearchMode,
-	refreshProducts,
+	refreshTodos,
 	hendleSearchTodo,
 	handleChangeInput,
 }) => {
@@ -27,7 +28,8 @@ export const Field = ({
 					type="button"
 					onClick={() => {
 						setIsSearchMode(!isSearchMode);
-						refreshProducts();
+						refreshTodos();
+						setInputData('');
 					}}
 				>
 					<SearchIcon />

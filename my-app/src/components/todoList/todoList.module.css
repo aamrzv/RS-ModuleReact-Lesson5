@@ -47,6 +47,10 @@
 .btnDel {
 	background-color: #945D47;
 }
+
+.btnEdit{
+	background-color: #dfb704;
+}
 .textDecoration{
 	text-decoration: line-through
 }

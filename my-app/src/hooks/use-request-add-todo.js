@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useRequestAddTodo = (refreshProducts) => {
+export const useRequestAddTodo = (refreshTodos) => {
 	const [isCreating, setIsCreating] = useState(false);
 
 	const requestAddTodo = (value) => {
@@ -8,12 +8,12 @@ export const useRequestAddTodo = (refreshProducts) => {
 		fetch('http://192.168.0.133:3005/todos', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json;charset=utf-8' },
-			body: JSON.stringify({ title: value, completed: false }),
+			body: JSON.stringify({ title: value, completed: false, date_start: '', date_end: '', description: '' }),
 		})
 			.then((rawResponse) => rawResponse.json())
 			.then((response) => {
 				console.log('ответ сервера:', response);
-				refreshProducts();
+				refreshTodos(true);
 			})
 			.finally(() => setIsCreating(false));
 	};

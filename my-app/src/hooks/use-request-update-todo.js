@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useRequestUpdateTodo = (refreshProducts, setTitleData) => {
+export const useRequestUpdateTodo = (refreshTodos, setTitleData) => {
 	const [isChangingTodo, setIsChangingTodo] = useState({ Status: false, id: null });
 
 	const changingTodo = (id, title) => {
@@ -22,7 +22,7 @@ export const useRequestUpdateTodo = (refreshProducts, setTitleData) => {
 		})
 			.then((rawResponse) => rawResponse.json())
 			.then((response) => {
-				refreshProducts();
+				refreshTodos();
 				console.log('ответ сервера:', response);
 			});
 	};
@@ -37,7 +37,7 @@ export const useRequestUpdateTodo = (refreshProducts, setTitleData) => {
 		})
 			.then((rawResponse) => rawResponse.json())
 			.then((response) => {
-				refreshProducts();
+				refreshTodos();
 				changingTodoStatus();
 				console.log('ответ сервера:', response);
 			});
