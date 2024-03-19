@@ -3,3 +3,4 @@ export * from './sortButton/sortButton';
 export * from './todoList/todoList';
 export * from './todoPage/todoPage';
 export * from './page404/page404';
+export * from './mainPage/mainPage';

@@ -45,7 +45,7 @@ export const TodoList = ({
 								✖
 							</span>
 						</span>
-						<Link to={`/${id}`} className={`${styles.btn} ${styles.btnEdit}`}>
+						<Link to={`todo/${id}`} className={`${styles.btn} ${styles.btnEdit}`}>
 							✎
 						</Link>
 					</li>
